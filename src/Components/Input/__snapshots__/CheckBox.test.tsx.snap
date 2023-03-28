@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Check Box Re-Render Correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <input
+      checked=""
+      defaultvalue="selected-option"
+      placeholder="Place Holder"
+      type="checkbox"
+      value="selected-option"
+    />
+    <label>
+      Place Holder
+    </label>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Check Box Render Correctly 1`] = `
+<DocumentFragment>
+  <div>
+    <input
+      defaultvalue="option 1"
+      placeholder="Place Holder"
+      type="checkbox"
+      value="option 1"
+    />
+    <label>
+      Place Holder
+    </label>
+  </div>
+</DocumentFragment>
+`;

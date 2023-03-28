@@ -1,0 +1,18 @@
+.form-container{
+    max-width: 500px;
+    margin: auto;
+    display: grid;
+    gap: 25px;
+    padding: 50px;
+}
+
+button[type="submit"]{
+    padding: 10px;
+    background-color: var(--border-color);
+    color: white;
+}
+
+button:disabled,
+button[disabled]{
+    opacity: 0.2;
+}
