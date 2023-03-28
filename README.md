@@ -25,7 +25,7 @@ git clone https://github.com/ionaught-tech/react-spa.git
 Install the dependencies:
 
 ```bash
-npm install.
+npm install
 ```
 
 Run the development server:
