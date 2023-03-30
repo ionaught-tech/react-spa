@@ -1,0 +1,134 @@
+
+input[type="file"] {
+  display: none;
+}
+
+.input-field-container {
+  width: 100%;
+}
+
+.input-field {
+  position: relative;
+}
+
+.input-field label {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 0 5px;
+  transition: 0.2s ease-in-out;
+  color: #555;
+  pointer-events: none;
+}
+
+.input-field .text-area-label {
+  top: 25px;
+}
+
+.input-field input,
+.input-field textarea {
+  width: 100%;
+  padding: 10px 10px 10px 20px;
+  border: 1px solid var(--light-gray);
+  background-color: var(--input-background-color);
+  border-radius: 5px;
+}
+
+.input-field-container-error .input-field input,
+.input-field-container-error .input-field textarea {
+  border: solid 1px red;
+}
+
+.input-field-container-error label {
+  color: #d32f2f;
+}
+
+.input-field textarea {
+  resize: none;
+  height: 160px;
+}
+
+.input-field input:focus ~ label,
+.input-field textarea:focus ~ label,
+.input-field .filled-label {
+  top: 0;
+  left: 10px;
+  background-color: rgb(255, 255, 255);
+}
+
+.input-field-icon,
+.input-field-info-icon,
+.arrow-right-line {
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: 50%;
+  position: absolute;
+  transform: translateY(-50%);
+  left: 10px;
+}
+
+.input-field-arrow{
+  right: 10px;
+}
+
+.arrow-right-line{
+  position: absolute;
+  width: 40px;
+  height: 0px;
+  top: 30px;
+  right: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  transform: rotate(90deg);
+}
+
+.textarea-field .input-field-icon,
+.textarea-field .input-field-info-icon {
+  top: 25px;
+}
+
+.input-field-info-icon {
+  left: unset;
+  right: 5px;
+  cursor: pointer;
+}
+
+.error-text {
+  position: absolute;
+  color: #d32f2f;
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.upload-field {
+  width: 100%;
+  padding: 10px 10px 10px 40px;
+  background-color: var(--input-background-color);
+  border-radius: 5px;
+  display: grid;
+}
+  
+.upload-button {
+  margin: 0 0 0 auto;
+  cursor: pointer;
+  padding: 10px;
+  display: flex;
+  gap: 10px;
+  background-color: var(--light-gray);
+  border-radius: 5px;
+}
+
+
+button[type="submit"]{
+  padding: 10px;
+  background-color: var(--border-color);
+  color: white;
+}
+
+button:disabled,
+button[disabled]{
+  opacity: 0.2;
+}
