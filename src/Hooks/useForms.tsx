@@ -77,7 +77,6 @@ const useForm = ({
     },[defaultValues])
 
     useEffect(()=>{
-        setValid(true)
         setFormError(emptyForm);
         
         if(serverError){
