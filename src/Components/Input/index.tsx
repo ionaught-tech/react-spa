@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
+import { InputFieldType } from "../../Types/PropsTypes";
 import Label from "../Input/Components/Label";
 import Layout from "../Input/Components/Layout";
 
 type PropsTypes = {
-  type?: "text" | "number" | "password" | "submit" | "button" | "textarea";
+  type?: InputFieldType;
   arrow?: string;
   leftIcon?:string;
   label?: string;

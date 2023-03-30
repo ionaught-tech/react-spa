@@ -16,3 +16,5 @@ export interface ErrorPropsTypes {
     reload: ()=>void
     setData:Dispatch<SetStateAction<any | null>>
 }
+
+export type InputFieldType = "text" | "number" | "password" | "submit" | "button" | "textarea";

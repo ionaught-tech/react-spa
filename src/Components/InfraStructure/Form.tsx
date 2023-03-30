@@ -1,21 +1,31 @@
 import { useCallback, useEffect, useState,FormEvent } from "react"
 import { ValidationError } from "../../Types/Error"
+import { InputFieldType } from "../../Types/PropsTypes";
 import InputField from "../Input"
 
 type FormField = {
     field:string;
     label:string;
+    type?:InputFieldType
 }
 
 interface PropsTypes {
     emptyForm: any,
     defaultValues?: any;
-    fromStructure:FormField[];
+    formStructure:FormField[];
     validateFunction: (d:any)=>any;
-    onSubmit: (data:any)=>void
+    onSubmit: (data:any)=>void;
+    formSubmitButtonLabel?: string;
 }
 
-const Form = ({emptyForm,defaultValues,fromStructure,validateFunction,onSubmit}:PropsTypes) => {
+const Form = ({
+    emptyForm,
+    defaultValues,
+    formStructure,
+    validateFunction,
+    onSubmit,
+    formSubmitButtonLabel= "Submit"
+}:PropsTypes) => {
 
     const [formData,setFormData] = useState(emptyForm);
 
@@ -70,7 +80,7 @@ const Form = ({emptyForm,defaultValues,fromStructure,validateFunction,onSubmit}:
 
   return (
     <form onSubmit={submit}>
-        {fromStructure.map((field)=>
+        {formStructure.map((field)=>
             <InputField
                 {...field}
                 key={field.field}
@@ -79,7 +89,7 @@ const Form = ({emptyForm,defaultValues,fromStructure,validateFunction,onSubmit}:
                 error={(formError as any)[field.field]}
             />
         )}
-        <button type="submit" disabled={!valid}>Submit</button>
+        <button type="submit" disabled={!valid}>{formSubmitButtonLabel}</button>
     </form>
   )
 }

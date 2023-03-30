@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="form-container">
       <Form
-        fromStructure = {[
+        formStructure = {[
             {
                 field: "name",
                 label: "Name"
