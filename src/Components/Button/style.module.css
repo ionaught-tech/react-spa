@@ -1,0 +1,82 @@
+.container,
+.secondaryContainer,
+.inlineContainer,
+.darkBlueContainer,
+.grayContainer,
+.roundedContainer,
+.successButton {
+    width: 100%;
+    padding: 0.5rem 2rem;
+    background-color: #6165D7;
+    color: #FFFFFF;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 0.3rem;
+    cursor: pointer;
+}
+
+.roundedContainer {
+    border-radius: 2rem;
+    font-size: 15px;
+    width: 115px;
+    height: 37px;
+}
+
+.secondaryContainer,
+.inlineContainer {
+    width: auto;
+    background-color: transparent;
+    color: rgba(19, 19, 201, 0.5);
+    ;
+    border: 1px solid #6165D7;
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+.inlineContainer {
+    border: none;
+    padding: 0.5rem 0;
+}
+
+.darkBlueContainer,
+.grayContainer,
+.successButton {
+    background-color: #6D17C9;
+    border-radius: 1.6rem;
+    padding: 0.8rem 1rem;
+    font-size: medium;
+}
+
+.grayContainer {
+    background-color: #908DA6;
+}
+
+.successButton {
+    background-color: #1AC568;
+    color: #FFFFFF;
+}
+
+.loadingContainer {
+    opacity: 0.5;
+}
+
+@media screen and (max-width: 420px) {
+
+    .container,
+    .secondaryContainer,
+    .inlineContainer {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .inlineContainer {
+        padding: 0;
+    }
+
+    .roundedContainer {
+        width: 173px;
+        height: 56px;
+        font-size: 30px;
+        font-weight: 500;
+    }
+}
