@@ -1,25 +1,25 @@
 import { useCallback, useEffect, useState,FormEvent } from "react"
 
-type ValidationError = {
+export type ValidationError = {
     message: string;
     path: string;
 }
 
-interface PropsTypes {
-    emptyForm: any,
-    defaultValues?: any;
-    validateFunction: (d:any)=>any;
-    onSubmit: (data:any)=> Promise<boolean> | void;
-    serverError?:any;
+interface PropsTypes <FormData>{
+    emptyForm: FormData,
+    defaultValues?: FormData;
+    validateFunction: (d:FormData)=>any;
+    onSubmit: (data:FormData)=> Promise<boolean> | void;
+    serverError?:ValidationError[];
 }
 
-const useForm = ({
+const useForm = <FormData extends Record<string,any>,>({
     emptyForm,
     defaultValues,
     validateFunction,
     onSubmit,
     serverError,
-}:PropsTypes) => {
+}:PropsTypes<FormData>) => {
     
     const [submitted,setSubmitted] = useState(false)
 
@@ -35,14 +35,14 @@ const useForm = ({
     
     const onChange = (key:string,value:string)=>{
         setCurrentUpdatingField(key)
-        setFormData((prev:any)=>({
+        setFormData((prev)=>({
             ...prev,
             [key]:value
         }))
     }
 
     const onErrorChange = (key:string,value:string)=>{
-        setFormError((prev:any)=>({
+        setFormError((prev)=>({
             ...prev,
             [key]:value
         }))
@@ -55,7 +55,7 @@ const useForm = ({
         
         if (!result?.status && result.data) {
             if(key)
-            setFormError((prev:any) => ({ ...prev, [key]: '' }));
+            setFormError((prev) => ({ ...prev, [key]: '' }));
             result.data.forEach(({ path, message }: ValidationError) => {
                 if (!key || key === path) onErrorChange(path, message);
             });

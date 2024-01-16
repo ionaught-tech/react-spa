@@ -14,3 +14,5 @@ const getErrorDetails = (error: Joi.ValidationError) =>
     message,
     path: `${Array.isArray(path) ? path[0] : path}`,
 }));
+
+export type SchemaValidationResponse = ReturnType<typeof schemaValidation>

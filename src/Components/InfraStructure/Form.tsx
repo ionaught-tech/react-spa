@@ -1,5 +1,6 @@
-import useForm from "../../Hooks/useForms";
+import useForm, { ValidationError } from "../../Hooks/useForms";
 import { InputFieldType } from "../../Types/PropsTypes";
+import { SchemaValidationResponse } from "../../Utils/Validation";
 import Button from "../Button";
 import InputField from "../Input"
 
@@ -9,17 +10,17 @@ type FormField = {
     type?:InputFieldType
 }
 
-interface PropsTypes {
-    emptyForm: any,
-    defaultValues?: any;
+interface PropsTypes <FormData>{
+    emptyForm: FormData,
+    defaultValues?: FormData;
     formStructure:FormField[];
-    validateFunction: (d:any)=>any;
-    onSubmit: (data:any)=>void;
+    validateFunction: (d:FormData)=>SchemaValidationResponse;
+    onSubmit: (data:FormData)=>void;
     formSubmitButtonLabel?: string;
-    serverError?:any;
+    serverError?:ValidationError[];
 }
 
-const Form = ({
+const Form = <FormData extends Record<string,any>,>({
     emptyForm,
     defaultValues,
     formStructure,
@@ -27,7 +28,7 @@ const Form = ({
     onSubmit,
     serverError,
     formSubmitButtonLabel= "Submit"
-}:PropsTypes) => {
+}:PropsTypes<FormData>) => {
 
     const {
         submit,
@@ -49,9 +50,9 @@ const Form = ({
             <InputField
                 {...field}
                 key={field.field}
-                value={(formData as any)[field.field]}
+                value={formData[field.field]}
                 onChange={(v)=>onChange(field.field,v)}
-                error={(formError as any)[field.field]}
+                error={formError[field.field]}
             />
         )}
         <Button
