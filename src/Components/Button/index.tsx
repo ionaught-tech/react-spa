@@ -9,15 +9,6 @@ interface PropsTypes {
   loading?: boolean;
 }
 
-const getClassName = (type:ButtonType)=> {
-  const classNamesList = {
-    Primary: "primary-button",
-    Secondary: "secondary-button",
-    Inline: "inline-button"
-  }
-  return classNamesList[type] || "";
-}
-
 const Button = ({
   label,
   type = 'Primary',
@@ -29,7 +20,7 @@ const Button = ({
 
   return (
     <button
-      className={getClassName(type)}
+      className=""
       onClick={() => !loading && onClick?.()}
       type={action}
       disabled={loading || disabled}
