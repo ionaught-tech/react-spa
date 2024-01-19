@@ -1,3 +1,4 @@
+import { TOKEN_KEY } from "../Config";
 import apiUrl from "../Config/apiUrl";
 
 interface ApiCallParameters{
@@ -25,8 +26,8 @@ const apiCall = async({
     if(!isFile)
         headers.append("Content-Type", "application/json");
 
-    if(localStorage.getItem("token"))
-        headers.append("Authorization", `Bearer ${localStorage.getItem("token")}`);
+    if(localStorage.getItem(TOKEN_KEY))
+        headers.append("Authorization", `Bearer ${localStorage.getItem(TOKEN_KEY)}`);
     const response = await fetch(
         `${apiUrl}${url}`,
         {
